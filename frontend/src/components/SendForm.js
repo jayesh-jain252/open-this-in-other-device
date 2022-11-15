@@ -15,12 +15,10 @@ const SendForm = () => {
       link: newLink,
     };
 
-    axios
-      .post("http://localhost:5000/api/send", linkObject)
-      .then((response) => {
-        setNewCode(response.data.generatedCode);
-        setNewLink("");
-      });
+    axios.post("/api/send", linkObject).then((response) => {
+      setNewCode(response.data.generatedCode);
+      setNewLink("");
+    });
   };
   return (
     <div className="mt-5 max-w-[800px] mx-auto">

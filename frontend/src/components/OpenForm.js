@@ -15,12 +15,10 @@ const OpenForm = () => {
       secretCode: newCode,
     };
 
-    axios
-      .post("http://localhost:5000/api/open", secretCodeObject)
-      .then((response) => {
-        setNewLink(response.data.generatedLink);
-        setNewCode("");
-      });
+    axios.post("/api/open", secretCodeObject).then((response) => {
+      setNewLink(response.data.generatedLink);
+      setNewCode("");
+    });
   };
   return (
     <div className="mt-5 max-w-[800px] mx-auto">
