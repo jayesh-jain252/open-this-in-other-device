@@ -18,7 +18,7 @@ const generateSecretCode = asyncHandler(async (req, res) => {
 
   if (newLink) {
     // Created
-    return res.status(201).json({ message: "link sent successfully" });
+    return res.status(201).json({ generatedCode: secretCode });
   } else {
     return res.status(400).json({ message: "Invalid link data received" });
   }
@@ -33,7 +33,7 @@ const generateLink = asyncHandler(async (req, res) => {
   //   if (!targetLink) {
   //     return res.status(400).json({ message: "Please enter a proper code" });
   //   }
-  return res.status(200).json({ sentLink: targetLink[0].link });
+  return res.status(200).json({ generatedLink: targetLink[0].link });
   //   return res.status(200).json({ sentlink: targetLink.link });
 });
 
